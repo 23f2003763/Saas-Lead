@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default async function Login({
   searchParams,
 }: {
-  searchParams: { message: string }
+  searchParams: Promise<{ message: string }>
 }) {
   const supabase = await createClient()
   const { data: { session } } = await supabase.auth.getSession()
@@ -13,6 +13,8 @@ export default async function Login({
   if (session) {
     redirect('/dashboard')
   }
+
+  const awaitedSearchParams = await searchParams;
 
   const signIn = async (formData: FormData) => {
     'use server'
@@ -115,9 +117,9 @@ export default async function Login({
           >
             Sign Up
           </button>
-          {searchParams?.message && (
+          {awaitedSearchParams?.message && (
             <p className="mt-4 p-4 bg-muted/50 text-foreground text-center text-sm rounded-md border border-border">
-              {searchParams.message}
+              {awaitedSearchParams.message}
             </p>
           )}
         </div>
