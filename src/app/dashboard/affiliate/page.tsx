@@ -35,16 +35,16 @@ export default async function AffiliateDashboard() {
           
           <h2 className="text-2xl font-bold mb-4 relative z-10">Join the Pay-to-Earn Program</h2>
           <p className="text-muted-foreground mb-8 relative z-10">
-            Connect your Stripe account to receive payouts. You&apos;ll get a unique referral link. 
+            Connect your payment account to receive payouts. You&apos;ll get a unique referral link. 
             When someone signs up for the $49/mo Pro plan using your link, you earn $24.50/mo for as long as they stay subscribed.
           </p>
           
-          <form action="/api/stripe/connect" method="POST" className="relative z-10">
-            <button className="flex items-center gap-2 px-6 py-3 rounded-md bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-all shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5">
-              Connect with Stripe
+          <div className="relative z-10">
+            <button disabled className="flex items-center gap-2 px-6 py-3 rounded-md bg-primary/50 text-primary-foreground font-medium transition-all cursor-not-allowed opacity-70">
+              Razorpay Integration Coming Soon
               <ArrowRight className="w-4 h-4" />
             </button>
-          </form>
+          </div>
         </div>
       ) : (
         <div className="flex flex-col gap-8">
