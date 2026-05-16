@@ -7,7 +7,7 @@ dotenv.config({ path: resolve(process.cwd(), '.env.local') });
 
 const APIFY_API_TOKEN = process.env.APIFY_API_TOKEN;
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
-const NEXT_PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const NEXT_PUBLIC_SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL; // eslint-disable-line @typescript-eslint/no-unused-vars
 
 // We need a target URL for the webhook to post to. In local dev, this would be localhost.
 // In production, it would be your Vercel domain.
@@ -70,6 +70,7 @@ async function runScraper() {
         const USER_ID = process.env.TARGET_USER_ID || 'replace-with-your-uuid';
 
         // Format the Apify output to match our webhook expectations
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const formattedLeads = items.map((item: any) => ({
             user_id: USER_ID,
             source: 'Reddit',

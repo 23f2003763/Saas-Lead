@@ -4,7 +4,17 @@ import { useState } from 'react'
 import { Send, Save, Bot, User, Loader2 } from 'lucide-react'
 import { createClient } from '@/utils/supabase/client'
 
-export default function LeadDetailClient({ lead }: { lead: any }) {
+interface Lead {
+  id: string;
+  source: string;
+  content: string;
+  prospect_username?: string;
+  prospect_contact?: string;
+  draft_message?: string;
+  status: string;
+}
+
+export default function LeadDetailClient({ lead }: { lead: Lead }) {
   const [draft, setDraft] = useState(lead.draft_message || '')
   const [isSaving, setIsSaving] = useState(false)
   const [isSending, setIsSending] = useState(false)
@@ -86,7 +96,7 @@ export default function LeadDetailClient({ lead }: { lead: any }) {
         </div>
         
         <div className="flex-1 bg-background/50 p-4 rounded-lg border border-border mt-2">
-          <p className="text-sm italic text-muted-foreground">"{lead.content}"</p>
+          <p className="text-sm italic text-muted-foreground">&quot;{lead.content}&quot;</p>
         </div>
       </div>
 

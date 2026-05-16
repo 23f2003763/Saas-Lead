@@ -35,7 +35,7 @@ export default async function AffiliateDashboard() {
           
           <h2 className="text-2xl font-bold mb-4 relative z-10">Join the Pay-to-Earn Program</h2>
           <p className="text-muted-foreground mb-8 relative z-10">
-            Connect your Stripe account to receive payouts. You'll get a unique referral link. 
+            Connect your Stripe account to receive payouts. You&apos;ll get a unique referral link. 
             When someone signs up for the $49/mo Pro plan using your link, you earn $24.50/mo for as long as they stay subscribed.
           </p>
           
