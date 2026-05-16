@@ -2,8 +2,9 @@ import { createClient } from '@/utils/supabase/server'
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_mock', {
-  apiVersion: '2024-04-10' as Stripe.LatestApiVersion,
+  apiVersion: '2024-04-10' as any,
 })
 
 export async function POST(request: Request) {
